@@ -16,7 +16,7 @@ It is distributed with a shell script that downloads and installs everything tha
 Then, download the installer and run it.
 
 ```sh
-wget https://raw.githubusercontent.com/openlumi/homeassistant_on_openwrt/23.05/ha_install.sh -O - | sh
+wget https://mirror.ghproxy.com/https://raw.githubusercontent.com/ycjcl868/homeassistant_on_openwrt/23.05/ha_install.sh -O - | sh
 ```
 
 After script prints `Done.` you have Home Assistant installed. 
