@@ -47,11 +47,11 @@ is_lumi_gateway()
 
 function int_version { echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'; }
 
-wget -q https://raw.githubusercontent.com/home-assistant/core/${HOMEASSISTANT_VERSION}/homeassistant/package_constraints.txt -O - > /tmp/ha_requirements.txt
-wget -q https://raw.githubusercontent.com/home-assistant/core/${HOMEASSISTANT_VERSION}/requirements.txt -O - >> /tmp/ha_requirements.txt
-wget -q https://raw.githubusercontent.com/home-assistant/core/${HOMEASSISTANT_VERSION}/requirements_all.txt -O - >> /tmp/ha_requirements.txt
+wget -q https://mirror.ghproxy.com/https://raw.githubusercontent.com/home-assistant/core/${HOMEASSISTANT_VERSION}/homeassistant/package_constraints.txt -O - > /tmp/ha_requirements.txt
+wget -q https://mirror.ghproxy.com/https://raw.githubusercontent.com/home-assistant/core/${HOMEASSISTANT_VERSION}/requirements.txt -O - >> /tmp/ha_requirements.txt
+wget -q https://mirror.ghproxy.com/https://raw.githubusercontent.com/home-assistant/core/${HOMEASSISTANT_VERSION}/requirements_all.txt -O - >> /tmp/ha_requirements.txt
 # now we can fetch nabucasa version and its deps
-wget -q https://raw.githubusercontent.com/NabuCasa/hass-nabucasa/$(get_version hass-nabucasa)/setup.py -O - | grep '[>=]=' | sed -E 's/\s*"(.*)",?/\1/' >> /tmp/ha_requirements.txt
+wget -q https://mirror.ghproxy.com/https://raw.githubusercontent.com/NabuCasa/hass-nabucasa/$(get_version hass-nabucasa)/setup.py -O - | grep '[>=]=' | sed -E 's/\s*"(.*)",?/\1/' >> /tmp/ha_requirements.txt
 
 HOMEASSISTANT_FRONTEND_VERSION=$(get_version home-assistant-frontend)
 NABUCASA_VER=$(get_version hass-nabucasa)
